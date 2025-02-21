@@ -1,0 +1,16 @@
+<!-- grupo 47 app -->
+
+<html>
+    <body>
+        <h3>Alterar dados para a instituição {{ params.get("nome") }}</h3>
+        <form action="update_instituicao?nome={{ params.get("nome") }}" method="post">
+            {% for record in cursor %}
+              <p>Novo nome: <input name="e_nome" value="{{ record[0] }}"/></p>
+              <p>Novo tipo: <input name="e_tipo" value="{{ record[1] }}"/></p>
+              <p>Novo número de região: <input name="e_regiao" value="{{ record[2] }}"/></p>
+              <p>Nova número de concelho: <input name="e_concelho" value="{{ record[3] }}"/></p>
+              <p><input type="submit" value="Submit"/></p>
+            {% endfor %}
+        </form>
+    </body>
+</html>

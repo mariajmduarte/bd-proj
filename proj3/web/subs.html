@@ -1,0 +1,32 @@
+<!-- grupo 47 app -->
+
+<html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  <h2>Listagem das substâncias prescritas pelo médico (número de cédula={{ data[0] }}) no mês {{ data[1] }}/{{ data[2] }}</h2>
+  {% if cursor %}
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Substância</th>
+          <th>Data da prescrição</th>
+          <th>Nome do médico</th>
+          <th>Número de cédula</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</html>

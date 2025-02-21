@@ -1,0 +1,21 @@
+<!-- grupo 47 app -->
+
+<html>
+    <body>
+        <h3>Alterar dados para a análise num_analise={{ params.get("num_analise") }}</h3>
+        <form action="update_analise?num_analise={{ params.get("num_analise") }}" method="post">
+            {% for record in cursor %}
+              <p>Novo número de análise: <input name="e_analise" value="{{ record[0] }}"/></p>
+              <p>Nova especialidade: <input name="e_esp" value="{{ record[1] }}"/></p>
+              <p>Novo número de cédula: <input name="e_cedula" value="{{ record[2] }}"/></p>
+              <p>Novo número de doente: <input name="e_doente" value="{{ record[3] }}"/></p>
+              <p>Nova data de consulta: <input name="e_data_c" value="{{ record[4] }}"/></p>
+              <p>Nova data de registo: <input name="e_data_r" value="{{ record[5] }}"/></p>
+              <p>Novo nome: <input name="e_nome" value="{{ record[6] }}"/></p>
+              <p>Nova quantidade: <input name="e_quant" value="{{ record[7] }}"/></p>
+              <p>Nova instituição: <input name="e_inst" value="{{ record[8] }}"/></p>
+              <p><input type="submit" value="Submit"/></p>
+            {% endfor %}
+        </form>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!-- grupo 47 app -->
+
+<html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  {% if cursor_max %}
+  <h2>Valores de glicémia mais alto por concelho e respetivo doente</h2>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Número de concelho</th>
+          <th>Número do doente</th>
+          <th>Valor (max)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor_max %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+  {% if cursor_min %}
+  <h2>Valores de glicémia mais baixo por concelho e respetivo doente</h2>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Número de concelho</th>
+          <th>Número do doente</th>
+          <th>Valor (min)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor_min %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</html>

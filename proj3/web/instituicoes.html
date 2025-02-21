@@ -1,0 +1,73 @@
+<!-- grupo 47 app -->
+
+<html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  <h2>Instituições</h2>
+  <h3>Inserir nova Instituição</h3>
+  <form action="insert_instituicao" method="post">
+      <table border="2px">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Número da Região</th>
+            <th>Número de Concelho</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input name="new_nome"></td>
+            <td><input name="new_tipo"></td>
+            <td><input name="new_regiao"></td>
+            <td><input name="new_concelho"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><input type="submit" name="insert"/></p>
+  </form>
+  <h3>Apagar Instituição</h3>
+  <form action="delete_instituicao" method="post">
+      <table border="2px">
+        <thead>
+          <tr>
+            <th>Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input name="del_nome"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><input type="submit" name="delete"/></p>
+  </form>
+  <h3>Base de Dados</h3>
+  {% if cursor %}
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Número da Região</th>
+          <th>Número de Concelho</th>
+          <th>Alterar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+            <td><a href="editar_instituicao?nome={{ record[0] }}">Editar dados</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+  {% endif %}
+</body>
+</html>

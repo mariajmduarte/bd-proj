@@ -1,0 +1,37 @@
+<!-- grupo 47 app -->
+
+<html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  <h2>Realizar venda em farmácia com prescrição</h2>
+  {% if cursor %}
+    <h3>Selecione a prescrição:</h3>
+      <table border="2px">
+        <thead>
+          <tr>
+            <th>Número de cédula</th>
+            <th>Número de doente</th>
+            <th>Data da consulta</th>
+            <th>Substância</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in cursor %}
+            <tr>
+              <td>{{ record[0] }}</td>
+              <td>{{ record[1] }}</td>
+              <td>{{ record[2] }}</td>
+              <td>{{ record[3] }}</td>
+              <td>{{ record[4] }}</td>
+              <td><a href="venda_farmacia?n_cedula={{ record[0] }}&n_doente={{ record[1] }}&data_c={{ record[2] }}&subs={{ record[3] }}&quant={{ record[4] }}">Selecionar</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p> Erro: ao obter dados da base de dados!</p>
+  </form>
+  {% endif %}
+</body>
+</html>

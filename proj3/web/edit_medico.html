@@ -1,0 +1,15 @@
+<!-- grupo 47 app -->
+
+<html>
+    <body>
+        <h3>Alterar dados para o médico num_cédula={{ params.get("num_cedula") }}</h3>
+        <form action="update_medico?num_cedula={{ params.get("num_cedula") }}" method="post">
+            {% for record in cursor %}
+              <p>Novo número de cédula: <input name="e_cedula" value="{{ record[0] }}"/></p>
+              <p>Novo nome: <input name="e_nome" value="{{ record[1] }}"/></p>
+              <p>Nova especialidade: <input name="e_especialidade" value="{{record[2] }}"/></p>
+              <p><input type="submit" value="Submit"/></p>
+            {% endfor %}
+        </form>
+    </body>
+</html>

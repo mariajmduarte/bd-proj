@@ -1,0 +1,50 @@
+<!-- grupo 47 app -->
+
+<html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  {% if data %}
+    <h2>Realizar venda em farmácia com prescrição</h2>
+    <p></p>
+    <h3>A sua prescrição:</h3>
+    <table border="2px">
+      <thead>
+        <tr>
+          <th>Número de cédula</th>
+          <th>Número de doente</th>
+          <th>Data da consulta</th>
+          <th>Substância</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ data[0] }}</td>
+          <td>{{ data[1] }}</td>
+          <td>{{ data[2] }}</td>
+          <td>{{ data[3] }}</td>
+          <td>{{ data[4] }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="update_venda?n_cedula={{ data[0] }}&n_doente={{ data[1] }}&data_c={{ data[2] }}&subs={{ data[3] }}&quant={{ data[4] }}" method="post">
+      <p></p>
+      <h3>Introduza os dados da venda:</h3>
+        <label>Número de venda:</label>
+        <input name="venda">
+        <label>Data de registo:</label>
+        <input name="data_registo">
+        <label>Substância:</label>
+        <input name="subs_v" value="{{ params.get("subs") }}" style="text-align: right">
+        <p></p>
+        <label>Quantidade:</label>
+        <input name="quant_v" value="{{ params.get("quant") }}" style="text-align: right">
+        <label>Preço:</label>
+        <input name="preco">
+        <label>Instituição:</label>
+        <input name="inst">
+        <p><input type="submit" name="insert"/></p>
+    </form>
+  {% endif %}
+</body>
+</html>

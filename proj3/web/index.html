@@ -1,0 +1,48 @@
+<!-- grupo 47 app -->
+
+<doctype html>
+<title>List accounts - Flask</title>
+<head>
+  <style>
+    .botao {
+      background-color: #1a1a1a;
+      color:#ffffff;
+      margin: 0px 2px;
+      padding: 7px 35px;
+      font-size: 16px;
+      cursor:pointer;
+      border-radius: 5px;
+      transition-duration: 0.3s;
+      left: 34%;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Odisseia</h1>
+  <a href="medicos" method="post"><button style="left: 24%" class="botao" type="button" name="button">Listar Médicos</button></a>
+  <a href="instituicoes" method="post"><button style="left: 34%" class="botao" type="button" name="button">Listar Instituições</button></a>
+  <a href="analises" method="post"><button class="botao" type="button" name="button">Listar Análises</button></a>
+  <a href="prescricoes" method="post"><button class="botao" type="button" name="button">Listar Prescrições</button></a>
+  <a href="venda_prescricao" method="post"><button class="botao" type="button" name="button">Realizar Venda em Farmácia com Prescrição</button></a>
+  <header>
+    <p></p>
+    <form action="subs_prescritas" method="post">
+      <label>Listar as substâncias prescritas pelo médico</label>
+      <input name="num_cedula" value="(num_cedula)" style="text-align: right">
+      <label>no mês</label>
+      <input name="mes" value="12" style="text-align: right">
+      <label>do ano</label>
+      <input name="ano" value="2020" style="text-align: right">
+      <input type="submit" name="Submit">
+    </form>
+  </header>
+  <header>
+    <p></p>
+    <form action="glicemia" method="post">
+      <label>Listar os valores de glicemia mais alto e mais baixo em cada concelho</label>
+      <input type="submit" name="subs">
+    </form>
+  </header>
+</body>
+</doctype>

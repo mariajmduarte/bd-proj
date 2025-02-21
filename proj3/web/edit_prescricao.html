@@ -1,0 +1,17 @@
+<!-- grupo 47 app -->
+
+<html>
+    <body>
+        <h3>Alterar dados para a prescrição</h3>
+        <form action="update_prescricao?num_cedula={{ params.get("num_cedula") }}&num_doente={{ params.get("num_doente") }}&data_consulta={{ params.get("data_consulta") }}&substancia={{ params.get("substancia") }}" method="post">
+            {% for record in cursor %}
+              <p>Novo número de cédula: <input name="e_cedula" value="{{ record[0] }}"/></p>
+              <p>Novo número de doente: <input name="e_doente" value="{{ record[1] }}"/></p>
+              <p>Nova data de consulta: <input name="e_data_c" value="{{ record[2] }}"/></p>
+              <p>Nova substância: <input name="e_subs" value="{{ record[3] }}"/></p>
+              <p>Nova quantidade: <input name="e_quant" value="{{ record[4] }}"/></p>
+              <p><input type="submit" value="Submit"/></p>
+            {% endfor %}
+        </form>
+    </body>
+</html>
